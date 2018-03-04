@@ -70,4 +70,22 @@ public class PersonControllerWithRequestMappingTest {
                 .andExpect(request().attribute("person", hasProperty("surname", equalToIgnoringCase(surname))));
     }
 
+    @Test
+    public void testPersonRequestMappingPathWithModelAttribute() throws Exception {
+        MockMvc mockMvc = MockMvcBuilders.standaloneSetup(personController).build();
+
+        String id = "1";
+        String url = "/personRequestMappingPathWithModelAttribute/" + id;
+        String name = "Pepe";
+        String surname = "Garcia";
+
+        mockMvc.perform(get(url))
+                .andExpect(status().isOk())
+                .andExpect(view().name("person-view"))
+                .andExpect(model().attributeExists("person"))
+                .andExpect(request().attribute("person", hasProperty("id", equalTo(id))))
+                .andExpect(request().attribute("person", hasProperty("name", equalToIgnoringCase(name))))
+                .andExpect(request().attribute("person", hasProperty("surname", equalToIgnoringCase(surname))));
+    }
+
 }

@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Slf4j
@@ -42,6 +43,18 @@ public class PersonControllerWithGetMapping extends PersonControllerCommon {
         log.info("Id: {}", id);
 
         PersonCommand personCommand = this.createPersonComand(id);
+
+        model.addAttribute("person", personCommand);
+
+        return "person-view";
+    }
+
+    // Invoke: http://localhost:8080/personGetMappingPathWithModelAttribute/1
+    @GetMapping("/personGetMappingPathWithModelAttribute/{id}")
+    public String getPersonGetMappingPathWithModelAttribute(@ModelAttribute PersonCommand personCommand, Model model){
+        log.info("Id: {}", personCommand.getId());
+
+        personCommand = this.createPersonComand(personCommand);
 
         model.addAttribute("person", personCommand);
 

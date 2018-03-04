@@ -12,4 +12,12 @@ public abstract class PersonControllerCommon {
 
         return personCommand;
     }
+
+    protected PersonCommand createPersonComand(PersonCommand personCommand) {
+        personCommand.setName("Pepe");
+        personCommand.setSurname("Garcia");
+
+        return personCommand;
+    }
+
 }

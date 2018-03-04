@@ -18,8 +18,11 @@
 ### For reception several http parameters, without using: @RequestParam
 - Invoke: http://localhost:8080/personGetMapping?name=Pepe&surname=Garcia
 
-### For reception the http path variable, using: @PathVariable
+### For reception a http path variable, using: @PathVariable
 - Invoke: http://localhost:8080/personGetMappingPath/1
+
+### For reception a http path variable, using: @ModelAttribute
+- Invoke: http://localhost:8080/personGetMappingPathWithModelAttribute/1
 
 ## Testing @RequestMapping
 ### For reception a http parameter, without using: @RequestParam
@@ -30,3 +33,6 @@
 
 ### For reception the http path variable, using: @PathVariable
 - Invoke: http://localhost:8080/personRequestMappingPath/1
+
+### For reception a http path variable, using: @ModelAttribute
+- Invoke: http://localhost:8080/personRequestMappingPathWithModelAttribute/1
