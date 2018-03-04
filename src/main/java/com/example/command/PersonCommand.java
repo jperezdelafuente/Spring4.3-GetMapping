@@ -1,4 +1,4 @@
-package com.example.getmapping.command;
+package com.example.command;
 
 import lombok.Getter;
 import lombok.Setter;
